@@ -9,27 +9,34 @@ package kemasJmartAK;
  */
 public class Jmart
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public static void main(String[] args) {
+        getPromo();
+        getCustomer();
+        getDiscountPercentage(1000, 900);
 
-    /**
-     * Constructor for objects of class Jmart
-     */
-    public Jmart()
-    {
-        // initialise instance variables
-        x = 0;
+
+        System.out.println(getPromo());
+        System.out.println(getCustomer());
+        System.out.println(getDiscountPercentage(1000, 900)+"f");
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    static int getPromo() {
+        return 0;
+    }
+
+    static String getCustomer() {
+        return "oop";
+    }
+
+    static float getDiscountPercentage(int before, int after) {
+        float potongan = 0;
+        if (before > after ) {
+            potongan = before - after;
+            potongan = potongan / 10;
+        }
+        if (before == after || before < after) {
+            potongan = 0;
+        }
+        return potongan;
     }
 }
