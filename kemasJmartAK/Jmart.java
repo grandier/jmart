@@ -38,7 +38,7 @@ public class Jmart
         }
 
         else {
-            int newPrice = price - (int) ((float) price * (discountPercentage / 100.0f));
+            int newPrice = price - (int) ( price * (discountPercentage / 100.0f));
             return newPrice;
         }
     }
