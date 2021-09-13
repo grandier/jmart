@@ -9,24 +9,7 @@ package kemasJmartAK;
 public class Jmart
 {
     public static void main(String[] args) {
-        getPromo();
-        getCustomer();
-        getDiscountPercentage(1000, 900);
-        getDiscountedPrice(1000, 10.0f);
-        getOriginalPrice(1000, 10.0f);
-        getCommissionMultiplier();
-        getAdjustedPrice(1000);
-        getAdminFee(1000);
-
-
-        System.out.println(getPromo());
-        System.out.println(getCustomer());
-        System.out.println(getDiscountPercentage(1000, 900));
-        System.out.println(getDiscountedPrice(1000, 10.0f));
-        System.out.println(getOriginalPrice(900, 10.0f));
-        System.out.println(getCommissionMultiplier());
-        System.out.println(getAdjustedPrice(1000));
-        System.out.println(getAdminFee(1000));
+        
     }
 
     static int getPromo() {
