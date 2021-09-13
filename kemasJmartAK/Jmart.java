@@ -9,7 +9,7 @@ package kemasJmartAK;
 public class Jmart
 {
     public static void main(String[] args) {
-        
+
     }
 
     static int getPromo() {
@@ -24,10 +24,10 @@ public class Jmart
         float potongan = 0;
         if (before > after ) {
             potongan = before - after;
-            potongan = potongan / 10;
+            potongan = (potongan / before) * 100.0f;
         }
         if (before == after || before < after) {
-            potongan = 0;
+            potongan = 0.0f;
         }
         return potongan;
     }
