@@ -25,8 +25,11 @@ public class ProductRating
     public double getAverage() {
         if (this.count == 0){
             System.out.println("Tidak bisa dibagi dengan angka 0!");
+            return 0;
         }
-        return (double) this.total / this.count;
+        else {
+            return (double) this.total / this.count;
+        }
     }
 
     public long getCount() {
