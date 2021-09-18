@@ -25,5 +25,26 @@ public class PriceTag
         this.discount = discount;
     }
 
+    public double getAdjustedPrice() {
+        return (getDiscountedPrice() + getAdminFee());
+    }
+
+    public double getAdminFee() {
+        if (getDiscountedPrice() < BOTTOM_PRICE){
+            return BOTTOM_FEE;
+        }
+        else {
+            return (getDiscountedPrice() * COMMISSION_MULTIPLIER);
+        }
+    }
+
+    private double getDiscountedPrice() {
+        if (this.discount >= 100.0){
+            return 0.0;
+        }
+        else {
+            return this.price - (this.price * (this.discount  / 100.f));
+        }
+    }
 
 }
