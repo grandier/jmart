@@ -12,15 +12,15 @@ public class Jmart
 
     }
 
-    static int getPromo() {
+    public static int getPromo() {
         return 0;
     }
 
-    static String getCustomer() {
+    public static String getCustomer() {
         return "oop";
     }
 
-    static float getDiscountPercentage(int before, int after) {
+    public static float getDiscountPercentage(int before, int after) {
         float potongan = 0;
         if (before > after ) {
             potongan = before - after;
@@ -32,7 +32,7 @@ public class Jmart
         return potongan;
     }
 
-    static int getDiscountedPrice(int price, float discountPercentage) {
+    public static int getDiscountedPrice(int price, float discountPercentage) {
         if (discountPercentage > 100.0f){
             return 0;
         }
@@ -43,7 +43,7 @@ public class Jmart
         }
     }
 
-    static int getOriginalPrice(int getDiscountedPrice, float discountPercentage) {
+    public static int getOriginalPrice(int getDiscountedPrice, float discountPercentage) { 
         if (getDiscountedPrice <= 0 ){
             return 0;
         }
@@ -53,21 +53,25 @@ public class Jmart
         return oldPrice;
     }
 
-    static float getCommissionMultiplier() {
+    public static float getCommissionMultiplier() {
         float commissionMultiplier = 0.05f;
         return commissionMultiplier;
     }
 
-    static int getAdjustedPrice(int price) {
+    public static int getAdjustedPrice(int price) {
         double doublePrice = price;
 
         int adjustedPrice = price + (int)(doublePrice * getCommissionMultiplier());
         return adjustedPrice;
     }
 
-    static int getAdminFee(int price) {
+    public static int getAdminFee(int price) {
 
         int adminFee = (int) (price * getCommissionMultiplier());
         return adminFee;
+    }
+
+    public static Product create(){
+        return null;
     }
 }

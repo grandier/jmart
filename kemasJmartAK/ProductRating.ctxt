@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=ProductRating
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ProductRating\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ProductRating()
+comment2.params=rating
+comment2.target=void\ insert(int)
+comment3.params=
+comment3.target=double\ getAverage()
+comment4.params=
+comment4.target=long\ getCount()
+comment5.params=
+comment5.target=long\ getTotal()
+numComments=6
