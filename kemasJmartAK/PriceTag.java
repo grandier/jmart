@@ -8,9 +8,9 @@ package kemasJmartAK;
  */
 public class PriceTag
 {
-    public static double COMMISSION_MULTIPLIER = 0.05;
-    public static double BOTTOM_PRICE = 20000.0;
-    public static double BOTTOM_FEE = 1000.0;
+    public static final double COMMISSION_MULTIPLIER = 0.05;
+    public static final double BOTTOM_PRICE = 20000.0;
+    public static final double BOTTOM_FEE = 1000.0;
 
     public double discount;
     public double price;
