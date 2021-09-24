@@ -17,7 +17,7 @@ public class PriceTag
 
     public PriceTag(double price) {
         this.price = price;
-        this.discount = 0.0;
+        discount = 0.0;
     }
 
     public PriceTag(double price, double discount) {
@@ -28,6 +28,7 @@ public class PriceTag
     public double getAdjustedPrice() {
         return (getDiscountedPrice() + getAdminFee());
     }
+    
 
     public double getAdminFee() {
         if (getDiscountedPrice() < BOTTOM_PRICE){
@@ -39,11 +40,11 @@ public class PriceTag
     }
 
     private double getDiscountedPrice() {
-        if (this.discount >= 100.0){
+        if (discount >= 100.0){
             return 0.0;
         }
         else {
-            return this.price - (this.price * (this.discount  / 100.f));
+            return price - (price * (discount  / 100.f));
         }
     }
 

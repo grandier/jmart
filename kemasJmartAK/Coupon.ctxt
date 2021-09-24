@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=boolean\ isUsed()
 comment3.params=priceTag
 comment3.target=boolean\ canApply(PriceTag)
-numComments=4
+comment4.params=priceTag
+comment4.target=double\ Apply(PriceTag)
+numComments=5

@@ -1,7 +1,5 @@
 package kemasJmartAK;
 
-import javax.lang.model.util.ElementScanner6;
-
 /**
  * Write a description of class Coupon here.
  *
@@ -32,11 +30,11 @@ public class Coupon
     }
 
     public boolean isUsed() {
-        return this.used;
+        return used;
     }
 
     public boolean canApply(PriceTag priceTag) {
-        if(priceTag.getAdjustedPrice() >= this.minimum && this.used == false) {
+        if(priceTag.getAdjustedPrice() >= minimum && used == false) {
             return true;
         }
         else {
@@ -44,5 +42,13 @@ public class Coupon
         }
     }
 
-
+    public double Apply(PriceTag priceTag) {
+        used = true;
+        if(type == Type.DISCOUNT) {
+            return (priceTag.getAdjustedPrice() * ((100-cut) / 100));
+        }
+        else {
+            return (priceTag.getAdjustedPrice() - cut);
+        }
+    }
 }

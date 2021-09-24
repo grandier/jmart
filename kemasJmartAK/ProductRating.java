@@ -1,4 +1,4 @@
-package kemasJmartAK;
+    package kemasJmartAK;
 
 
 /**
@@ -21,22 +21,21 @@ public class ProductRating
         this.total += rating;
         this.count++;
     }
-
+    
     public double getAverage() {
-        if (this.count == 0){
-            System.out.println("Tidak bisa dibagi dengan angka 0!");
-            return 0;
+        if (count == 0){
+            return 0.0;
         }
         else {
-            return (double) this.total / this.count;
+            return (double) total / count;
         }
     }
 
     public long getCount() {
-        return this.count;
+        return count;
     }
 
     public long getTotal() {
-        return this.total;
+        return total;
     }
 }
