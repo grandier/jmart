@@ -19,7 +19,7 @@ public class ProductRating
 
     public void insert(int rating) {
         this.total += rating;
-        this.count++;
+        count++;
     }
     
     public double getAverage() {

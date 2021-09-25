@@ -21,16 +21,16 @@ public class ShipmentDuration
 
     public ShipmentDuration(ShipmentDuration... args) {
         for(ShipmentDuration s : args) {
-            bit = bit | s.bit;
-        }//0000 1100 = 0000 1100 | 0001 0000 
+            this.bit = bit | s.bit;
+        } 
     }
 
     public boolean isDuration(ShipmentDuration reference) {
-        if(reference == null) {
+        if((bit & reference.bit) != 0) {
             return true;
         }
         else {
-            return (bit & reference.bit) != 0;
-        }// 0000 0110 & 0000 0100 = 0000 0100 (4)   0 != 0 = false,  4 != 0 (true). 
+            return false;
+        }
     }
 }

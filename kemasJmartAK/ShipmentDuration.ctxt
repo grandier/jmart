@@ -5,4 +5,6 @@ comment1.params=bit
 comment1.target=ShipmentDuration(int)
 comment2.params=args
 comment2.target=ShipmentDuration(ShipmentDuration[])
-numComments=3
+comment3.params=reference
+comment3.target=boolean\ isDuration(ShipmentDuration)
+numComments=4

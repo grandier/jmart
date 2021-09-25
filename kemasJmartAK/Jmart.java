@@ -13,7 +13,7 @@ public class Jmart
     }
 
     public static Product create(){
-        return new Product ("Mobil", 100, false, new PriceTag(2000000.0), ProductCategory.AUTOMOTIVE);
+        return null;
     }
 
     public static Product createProduct() {
@@ -21,10 +21,10 @@ public class Jmart
     }
 
     public static Coupon createCoupon() {
-        return null;
+        return new Coupon("Kupon Discount 50%", 1, Coupon.Type.DISCOUNT, 50, 10000);
     }
 
     public static ShipmentDuration createShipmentDuration() {
-        return null;
+        return new ShipmentDuration(ShipmentDuration.INSTANT, ShipmentDuration.SAME_DAY);
     }
 }
