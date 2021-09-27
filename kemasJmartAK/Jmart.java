@@ -21,10 +21,10 @@ public class Jmart
     }
 
     public static Coupon createCoupon() {
-        return new Coupon("Kupon Discount 50%", 1, Coupon.Type.DISCOUNT, 50, 10000);
+        return null;
     }
 
-    public static ShipmentDuration createShipmentDuration() {
-        return new ShipmentDuration(ShipmentDuration.INSTANT, ShipmentDuration.SAME_DAY);
+    public static Shipment.Duration createShipmentDuration() {
+        return null;
     }
 }

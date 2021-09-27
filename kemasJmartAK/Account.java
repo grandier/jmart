@@ -22,7 +22,7 @@ public class Account extends Recognizable implements FileParser
     }
 
     @Override
-    public boolean read(String content){
+    public boolean read(String content) {
         return false;
     }
 }

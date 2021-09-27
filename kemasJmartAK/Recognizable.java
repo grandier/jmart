@@ -1,12 +1,13 @@
 package kemasJmartAK;
 
+
 /**
- * Write a description of class Recognizable here.
+ * Abstract class Recognizable - write a description of the class here
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (your name here)
+ * @version (version number or date here)
  */
-public class Recognizable
+public abstract class Recognizable
 {
     public final int id;
 

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Recognizable
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Recognizable\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Abstract\ class\ Recognizable\ -\ write\ a\ description\ of\ the\ class\ here\r\n\r\n\ @author\ (your\ name\ here)\r\n\ @version\ (version\ number\ or\ date\ here)\r\n
 comment1.params=id
 comment1.target=Recognizable(int)
 comment2.params=object
