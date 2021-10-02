@@ -45,7 +45,7 @@ public class Store extends Recognizable implements FileParser
         Matcher cekPhone = formatNum.matcher(phoneNumber);
         boolean matchPhone = cekPhone.find();
         
-        Pattern formatName = Pattern.compile(REGEX_PHONE);
+        Pattern formatName = Pattern.compile(REGEX_NAME);
         Matcher cekName = formatName.matcher(phoneNumber);
         boolean matchName = cekName.find();
 
