@@ -14,12 +14,11 @@ public class Filter
     {
         ArrayList<PriceTag> priceTag = new ArrayList<>();
         for (PriceTag s : list) {
-            if (less && s.getAdjustedPrice() < value || !less && s.getAdjustedPrice() >= value)
+            if (!less && s.getAdjustedPrice() >= value || less && s.getAdjustedPrice() < value)
             {
                 priceTag.add(s);
             }
         }
-        
         return priceTag;
     }
 
