@@ -1,4 +1,10 @@
 #BlueJ class context
 comment0.target=Invoice
 comment0.text=\r\n\ Abstract\ class\ Invoice\ -\ write\ a\ description\ of\ the\ class\ here\r\n\r\n\ @author\ (your\ name\ here)\r\n\ @version\ (version\ number\ or\ date\ here)\r\n
-numComments=1
+comment1.params=id\ buyerId\ productId
+comment1.target=Invoice(int,\ int,\ int)
+comment2.params=content
+comment2.target=boolean\ read(java.lang.String)
+comment3.params=
+comment3.target=double\ getTotalPay()
+numComments=4

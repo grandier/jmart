@@ -1,5 +1,6 @@
 package kemasJmartAK;
 
+import java.util.Date;
 
 /**
  * Abstract class Invoice - write a description of the class here
@@ -16,7 +17,7 @@ public abstract class Invoice extends Recognizable implements FileParser
         ON_DELIVERY,
         COMPLAINT,
         FINISHED,
-        FAILED,
+        FAILED
     }
 
     public enum Rating {
@@ -26,7 +27,7 @@ public abstract class Invoice extends Recognizable implements FileParser
         GOOD
     }
 
-    public String date;
+    public Date date;
     public int buyerId;
     public int productId;
     public int complaintId;
@@ -37,7 +38,7 @@ public abstract class Invoice extends Recognizable implements FileParser
         super(id);
         this.buyerId = buyerId;
         this.productId = productId;
-        date = "apapun";
+        date = new Date();
         this.rating = Rating.NONE;
         this.status = Status.WAITING_CONFIRMATION;
     }

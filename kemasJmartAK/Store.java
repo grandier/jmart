@@ -1,5 +1,7 @@
 package kemasJmartAK;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern; 
 
 /**
  * Write a description of class Store here.
@@ -9,6 +11,8 @@ package kemasJmartAK;
  */
 public class Store extends Recognizable implements FileParser
 {
+    public static final String REGEX_PHONE = "^(\\d{9,12})$";
+    public static final String REGEX_NAME = "";
     public String name;
     public String address;
     public String phoneNumber;
@@ -30,5 +34,27 @@ public class Store extends Recognizable implements FileParser
     @Override
     public boolean read(String content) {
         return false;
+    }
+
+    public String toString(){
+        return "name: " + (String)this.name + "\n" + "address: " + (String)this.address + "\n" + "phoneNumber: " + (String)this.phoneNumber;
+    }
+
+    public boolean validate(){
+        Pattern formatNum = Pattern.compile(REGEX_PHONE);
+        Matcher cekPhone = formatNum.matcher(phoneNumber);
+        boolean matchPhone = cekPhone.find();
+        
+        Pattern formatName = Pattern.compile(REGEX_PHONE);
+        Matcher cekName = formatName.matcher(phoneNumber);
+        boolean matchName = cekName.find();
+
+        if(matchName == true && matchPhone == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
     }
 }

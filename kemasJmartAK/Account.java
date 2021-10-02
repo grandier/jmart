@@ -13,7 +13,6 @@ public class Account extends Recognizable implements FileParser
     public String email;
     public String password;
 
-    
     public Account (int id, String name, String email, String password){
         super(id);
         this.name = name;
@@ -24,5 +23,9 @@ public class Account extends Recognizable implements FileParser
     @Override
     public boolean read(String content) {
         return false;
+    }
+
+    public String toString(){
+        return "name: " + (String)this.name + "\n" + "email: " + (String)this.email + "\n" + "password: " + (String)this.password;
     }
 }
