@@ -9,4 +9,6 @@ comment3.params=content
 comment3.target=boolean\ read(java.lang.String)
 comment4.params=
 comment4.target=java.lang.String\ toString()
-numComments=5
+comment5.params=
+comment5.target=boolean\ validate()
+numComments=6

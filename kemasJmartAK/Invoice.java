@@ -1,6 +1,7 @@
 package kemasJmartAK;
 
 import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * Abstract class Invoice - write a description of the class here
@@ -33,6 +34,7 @@ public abstract class Invoice extends Recognizable implements FileParser
     public int complaintId;
     public Rating rating;
     public Status status;
+    public ArrayList<Record> history;
 
     protected Invoice(int id, int buyerId, int productId) {
         super(id);
@@ -49,5 +51,11 @@ public abstract class Invoice extends Recognizable implements FileParser
     }
 
     public abstract double getTotalPay();
+
+    public class Record {
+        public Status status;
+        public Date date;
+        public String message;
+    }
     
 }

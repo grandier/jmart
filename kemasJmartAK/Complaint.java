@@ -1,5 +1,6 @@
 package kemasJmartAK;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -22,5 +23,12 @@ public class Complaint extends Recognizable implements FileParser
     @Override
     public boolean read(String content) {
         return false;
+    }
+
+    public String toString(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(this.date);
+        String desc = this.desc;
+        return date + " " + desc;
     }
 }

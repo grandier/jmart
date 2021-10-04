@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
  * @version (a version number or a date)
  */
 public class Shipment implements FileParser
-{
+{   
     public String address;
     public int shipmentCost;
     public Duration duration;
