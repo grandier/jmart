@@ -3,7 +3,7 @@ package kemasJmartAK;
 /**
  * Write a description of class Jmart here.
  *
- * @author Kemas Rafly Omar Thoriq
+ * @author @grandier
  * 
  */
 public class Jmart

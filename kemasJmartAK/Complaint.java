@@ -28,7 +28,7 @@ public class Complaint extends Recognizable implements FileParser
     public String toString(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String date = sdf.format(this.date);
-        String desc = this.desc;
-        return date + " " + desc;
+        String complaint = "Complaint{date=" + date + ", desc='" + this.desc + "'}";
+        return complaint ;
     }
 }
