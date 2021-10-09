@@ -1,5 +1,5 @@
 package kemasJmartAK;
 
-public interface Predictate<T> {
+public interface Predicate<T> {
 	public abstract boolean predictate(T arg);
 }
