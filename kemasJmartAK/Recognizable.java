@@ -7,12 +7,31 @@ package kemasJmartAK;
  * @author (your name here)
  * @version (version number or date here)
  */
-public abstract class Recognizable
+
+public class Recognizable implements Comparable<Recognizable>
 {
     public final int id;
 
     protected Recognizable(int id) {
         this.id = id;
+    }
+
+    public static <T> int setClosingId(Class <Recognizable> clazz, int id){
+        if(Recognizable.class.isAssignableFrom(clazz)){
+            return 0;
+        }
+        else{   
+            return 1;
+        }
+    }
+
+    public static <T> int getClosingId(Class <Recognizable> clazz){
+        if(Recognizable.class.isAssignableFrom(clazz)){
+            return 0;
+        }
+        else{   
+            return 1;
+        }
     }
 
     public boolean equals(Object object) {
@@ -21,5 +40,15 @@ public abstract class Recognizable
 
     public boolean equals(Recognizable object) {
         return object.id == id;
+    }
+
+    @Override
+    public int compareTo(Recognizable other) {
+        if (id == other.id){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 }
