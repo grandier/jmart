@@ -20,7 +20,6 @@ public class Product extends Recognizable implements FileParser
 
     public Product(int id, int storeId, String name, int weight, boolean conditionUsed,
     PriceTag priceTag, ProductCategory category, Shipment.MultiDuration multiDuration) {
-        super(id);
         this.storeId = storeId;
         this.name = name;
         this.weight = weight;

@@ -22,7 +22,6 @@ public class Coupon extends Recognizable implements FileParser
 
     public Coupon(int id, String name, int code, Type type, double cut, double minimum)
     {
-        super(id);
         this.name = name;
         this.code = code;
         this.cut = cut;

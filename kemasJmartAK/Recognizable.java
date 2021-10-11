@@ -12,8 +12,8 @@ public class Recognizable implements Comparable<Recognizable>
 {
     public final int id;
 
-    protected Recognizable(int id) {
-        this.id = id;
+    protected Recognizable() {
+        this.id = 1;
     }
 
     public static <T> int setClosingId(Class <Recognizable> clazz, int id){
@@ -34,12 +34,12 @@ public class Recognizable implements Comparable<Recognizable>
         }
     }
 
-    public boolean equals(Object object) {
-        return (object instanceof Recognizable) && ((Recognizable) object).id == id;
+    public boolean equals(Object other) {
+        return (other instanceof Recognizable) && ((Recognizable) other).id == id;
     }
 
-    public boolean equals(Recognizable object) {
-        return object.id == id;
+    public boolean equals(Recognizable other) {
+        return other.id == id;
     }
 
     @Override
