@@ -210,8 +210,6 @@ public class Algorithm {
 		for (T arr : array) {
 			if (arr.compareTo(maximum) >= 0) {
 				maximum = arr;
-			} else {
-				maximum = maximum;
 			}
 		}
 
@@ -263,8 +261,6 @@ public class Algorithm {
 		for (T arr : array) {
 			if (comparator.compare(arr, maximum) >= 0) {
 				maximum = arr;
-			} else {
-				maximum = maximum;
 			}
 		}
 
@@ -307,8 +303,6 @@ public class Algorithm {
 		for (T arr : array) {
 			if (arr.compareTo(minimum) <= 0) {
 				minimum = arr;
-			} else {
-				minimum = minimum;
 			}
 		}
 
@@ -360,8 +354,6 @@ public class Algorithm {
 		for (T arr : array) {
 			if (comparator.compare(arr, minimum) <= 0) {
 				minimum = arr;
-			} else {
-				minimum = minimum;
 			}
 		}
 
