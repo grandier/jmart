@@ -16,20 +16,18 @@ public class Recognizable implements Comparable<Recognizable>
         this.id = 1;
     }
 
-    public static <T> int setClosingId(Class <Recognizable> clazz, int id){
-        if(Recognizable.class.isAssignableFrom(clazz)){
+    public static <T> int setClosingId(Class<T> clazz){
+        if(clazz.isAssignableFrom(Recognizable.class)){
             return 0;
-        }
-        else{   
+        } else{
             return 1;
         }
     }
 
-    public static <T> int getClosingId(Class <Recognizable> clazz){
-        if(Recognizable.class.isAssignableFrom(clazz)){
+    public static <T> int getClosing(Class<T> clazz, int id){
+        if(clazz.isAssignableFrom(Recognizable.class)){
             return 0;
-        }
-        else{   
+        }else{
             return 1;
         }
     }

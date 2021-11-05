@@ -9,27 +9,21 @@ import java.util.regex.Pattern;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Account extends Recognizable implements FileParser
+public class Account extends Recognizable
 {
-    public static final String REGEX_EMAIL = "^\\w+([.&`~-]?\\w+)*@\\w+([.-]?\\w+)+$";
+    public static final String REGEX_EMAIL = "^\\w+([\\.&`~-]?\\w+)*@\\w+([\\.-]?\\w+)+$";
     public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d][^-\\s]{8,}$";
+    public double balance;
     public String name;
     public String email;
     public String password;
+    public Store store;
 
-    public Account (int id, String name, String email, String password){
+    public Account (String name, String email, String password, double balance){
         this.name = name;
         this.email = email;
         this.password = password;
-    }
-
-    @Override
-    public boolean read(String content) {
-        return false;
-    }
-
-    public String toString(){
-        return "name: " + (String)this.name + "\n" + "email: " + (String)this.email + "\n" + "password: " + (String)this.password;
+        this.balance = balance;
     }
 
     public boolean validate(){

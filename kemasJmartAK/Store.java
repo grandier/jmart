@@ -9,33 +9,24 @@ import java.util.regex.Pattern;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Store extends Recognizable implements FileParser
+public class Store extends Recognizable
 {
     public static final String REGEX_PHONE = "^(\\d{9,12})$";
     public static final String REGEX_NAME = "^(?=^[A-Z])(?![A-Z a-z]{20,})((?=[A-Z a-z]{4,}).)((?!\\s{2}).)*$";
     public String name;
     public String address;
     public String phoneNumber;
+    public double balance;
 
-    public Store(int accountId, String name, String address, String phoneNumber) {
+    public Store(String name, String address, String phoneNumber, double balance) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-    }
-
-    public Store(Account account, String name, String address, String phoneNumber) {
-        this.name = name;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
-    
-    @Override
-    public boolean read(String content) {
-        return false;
+        this.balance = balance;
     }
 
     public String toString(){
-        return "name: " + (String)this.name + "\n" + "address: " + (String)this.address + "\n" + "phoneNumber: " + (String)this.phoneNumber;
+    	return "name: " + (String)this.name + "\n" + "address: " + (String)this.address + "\n" + "Phone Number" + (String)this.phoneNumber;
     }
 
     public boolean validate(){

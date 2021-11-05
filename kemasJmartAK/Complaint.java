@@ -9,25 +9,19 @@ import java.util.Date;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Complaint extends Recognizable implements FileParser
+public class Complaint extends Recognizable
 {
     public Date date;
     public String desc;
 
-    public Complaint(int id, String desc) {
+    public Complaint(String desc) {
         this.desc = desc;
         date = new Date();
     }
 
-    @Override
-    public boolean read(String content) {
-        return false;
-    }
-
     public String toString(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String date = sdf.format(this.date);
-        String complaint = "Complaint{date=" + date + ", desc='" + this.desc + "'}";
-        return complaint ;
+    	SimpleDateFormat SDformat = new SimpleDateFormat("dd/MM/yyyy");
+        String formatDate = SDformat.format(this.date);
+        return "{date = " + formatDate + "desc = '" + this.desc + "'}";
     }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author (your name here)
  * @version (version number or date here)
  */
-public abstract class Invoice extends Recognizable implements FileParser
+public abstract class Invoice extends Recognizable
 {
     public enum Status {
         WAITING_CONFIRMATION,
@@ -36,22 +36,18 @@ public abstract class Invoice extends Recognizable implements FileParser
     public Status status;
     public ArrayList<Record> history;
 
-    protected Invoice(int id, int buyerId, int productId) {
+    protected Invoice(int buyerId, int productId) {
         this.buyerId = buyerId;
         this.productId = productId;
         date = new Date();
+        this.complaintId = 1;
         this.rating = Rating.NONE;
         this.status = Status.WAITING_CONFIRMATION;
     }
 
-    @Override
-    public boolean read(String content) {
-        return false;
-    }
-
     public abstract double getTotalPay();
 
-    public class Record {
+    public class Record	{
         public Status status;
         public Date date;
         public String message;

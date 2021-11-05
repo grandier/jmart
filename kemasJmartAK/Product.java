@@ -7,38 +7,35 @@ package kemasJmartAK;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Product extends Recognizable implements FileParser
+public class Product extends Recognizable
 {
+	public int accountId;
+	public double discount;
     public String name;
     public int weight;
     public boolean conditionUsed;
-    public PriceTag priceTag;
     public ProductCategory category;
-    public ProductRating rating;
-    public int storeId;
-    public Shipment.MultiDuration multiDuration;
+    public double price;
+    public byte shipmentPlans;
+    
 
-    public Product(int id, int storeId, String name, int weight, boolean conditionUsed,
-    PriceTag priceTag, ProductCategory category, Shipment.MultiDuration multiDuration) {
-        this.storeId = storeId;
+    public Product(int accountId, String name, int weight, boolean conditionUsed,
+    double price, double discount, ProductCategory category, byte shipmentPlans) {
+        this.accountId = accountId;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
-        this.priceTag = priceTag;
+        this.price = price;
+        this.discount = discount;
         this.category = category;
-        rating = new ProductRating();
-        this.multiDuration = multiDuration;
-    }
-
-    @Override
-    public boolean read(String content) {
-        return false;
+        this.shipmentPlans = shipmentPlans;
     }
 
     public String toString(){
-        return "name: " + this.name + "\n" + "Weight: " + (int)this.weight + "\n" + "conditionUsed: " + (boolean)this.conditionUsed
-        + "\n" + "priceTag: " + (double)this.priceTag.getAdjustedPrice() + "\n" + "Category: " + this.category + "\n" + "Category: " + this.category
-        + "\n" + "rating: " + (int)this.rating.getAverage() + "\n" + "storeId: " + this.storeId;
+    	return "name: " + (String)this.name + "\n" + "weight: " + (int)this.weight + "\n" 
+    	+ "conditionUsed: " +  (boolean)this.conditionUsed + "Discount: " + (Double)this.discount 
+    	+ "\n" + "Category: " + this.category + "\n" + "Price: " + (double)this.price + "\n" + "ShipmentPlans: " 
+    	+ this.shipmentPlans;
     }
     
 }
