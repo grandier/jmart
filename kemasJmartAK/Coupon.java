@@ -6,7 +6,7 @@ package kemasJmartAK;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupon extends Recognizable {
+public class Coupon extends Serializable {
 	public final String name;
 	public final int code;
 	public final double cut;
@@ -31,20 +31,20 @@ public class Coupon extends Recognizable {
 		return used;
 	}
 
-	public boolean canApply(Treasury treasury) {
-		if (Treasury.getAdjustedPrice(this.minimum, this.cut) >= this.minimum && !this.used) {
+	public boolean canApply(double price, double discount) {
+		if (Treasury.getAdjustedPrice(price, discount) >= this.minimum && !this.used) {
             return true;
-        } else {
+        } else {	
         return false;
         }
     }
 
-	public double Apply(Treasury treasury) {
+	public double Apply(double price, double discount) {
 		used = true;
 		if (type == Type.DISCOUNT) {
-			return (Treasury.getAdjustedPrice(this.minimum, this.cut) * ((100 - cut) / 100));
+			return (Treasury.getAdjustedPrice(price, discount) * ((100 - cut) / 100));
 		} else {
-			return (Treasury.getAdjustedPrice(this.minimum, this.cut) - cut);
+			return (Treasury.getAdjustedPrice(price, discount) - cut);
 		}
 	}
 }

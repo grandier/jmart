@@ -9,11 +9,6 @@ import java.util.List;
 
 public class Algorithm {
 
-	// @FunctionalInterface
-	interface Predicate<T> {
-		boolean predicate(T arg);
-	}
-
 	private <T> Algorithm() {
 		// do nothing
 	}

@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Store extends Recognizable
+public class Store
 {
     public static final String REGEX_PHONE = "^(\\d{9,12})$";
     public static final String REGEX_NAME = "^(?=^[A-Z])(?![A-Z a-z]{20,})((?=[A-Z a-z]{4,}).)((?!\\s{2}).)*$";

@@ -9,7 +9,7 @@ import java.util.Date;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Complaint extends Recognizable
+public class Complaint extends Serializable
 {
     public Date date;
     public String desc;

@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
  */
 public class Shipment 
 {
-	public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMM dd yyyy");
+	public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMM dd yyyy");;
     public static final Plan INSTANT = new Plan((byte)(1 << 0));    //1
     public static final Plan SAME_DAY = new Plan((byte)(1 << 1));   //2
     public static final Plan NEXT_DAY = new Plan((byte)(1 << 2));   //4
