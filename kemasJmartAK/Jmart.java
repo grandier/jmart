@@ -74,16 +74,29 @@ public class Jmart {
 	}
 
 	public static List<Product> filterByAccountId(List<Product> list, int accountId, int page, int pageSize) {
-		Predicate<Product> predicate = temp -> (temp.accountId == accountId);
-        return paginate(list, page, pageSize, predicate);
+		return paginate(list, page, pageSize, product -> product.accountId == accountId);
 	}
 
 	public static List<Product> filterByName(List<Product> list, String search, int page, int pageSize) {
-		Predicate<Product> predicate = tempName -> (tempName.name.toLowerCase().contains(search.toLowerCase()));
-        return paginate(list, page, pageSize, predicate);
+		return paginate(list, page, pageSize, product -> product.name.toLowerCase().contains(search.toLowerCase()));
 	}
 
 	private static List<Product> paginate(List<Product> list, int page, int pageSize, Predicate<Product> pred) {
-		return list.stream().filter(temp -> pred.predicate(temp)).skip(page * pageSize).limit(pageSize).collect(Collectors.toList());
+		int iteration = 0;
+		int occurences = 0;
+		int startingIdx = page * pageSize;
+		List<Product> pageList = new ArrayList<>(pageSize);
+		
+		for (; iteration < list.size() && occurences < startingIdx; ++iteration) {
+			if (pred.predicate(list.get(iteration))) {
+				++occurences;
+			}
+		}
+		for (int i = iteration; i < list.size() && pageList.size() < pageSize; ++i) {
+			if (pred.predicate(list.get(i))) {
+				pageList.add(list.get(i));
+			}
+		}
+		return pageList;
 	}
 }
