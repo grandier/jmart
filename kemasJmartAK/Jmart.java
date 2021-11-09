@@ -21,11 +21,12 @@ public class Jmart {
 		try {
 			List<Product> list = read(
 					"C:\\Users\\rafly\\Documents\\PTN Stuff\\UI Kuliah\\Semester 3\\Pemrograman Berorientasi Objek - 02\\Praktikum\\Modul 6\\randomProductList.json");
+			List<Product> filtered = filterByPrice(list, 13000.0, 15000.0);
+            filtered.forEach(Product -> System.out.println(Product.price));
 			List<Product> filteredByName = filterByName(list, "gtx", 1, 5);
             filteredByName.forEach(product -> System.out.println(product.name));
             List<Product> filteredById = filterByAccountId(list, 1, 0, 5);
             filteredById.forEach(product -> System.out.println(product.name));
-
         }
 
         catch (Throwable t)
@@ -35,28 +36,17 @@ public class Jmart {
 	}
 
 	public static List<Product> filterByCategory(List<Product> list, ProductCategory category) {
-		List<Product> tempHasil = new ArrayList<Product>();
-
-		for (Product temp : list) {
-			if (temp.category == category) {
-				tempHasil.add(temp);
-			}
-		}
-		return tempHasil;
+		return Algorithm.<Product>collect(list, prod -> prod.category == category);
 	}
-
+	
 	public static List<Product> filterByPrice(List<Product> list, double minPrice, double maxPrice) {
-		List<Product> result = new ArrayList<Product>();
-		for (Product product : list) {
-			if (minPrice <= 0.0 && product.price < minPrice) {
-				continue;
-			}
-			if (maxPrice <= 0.0 && product.price > maxPrice) {
-				continue;
-			}
-			result.add(product);
+		if (minPrice <= 0) {
+			return Algorithm.<Product>collect(list, prod -> prod.price <= maxPrice);
 		}
-		return result;
+		else if (maxPrice <= 0) {
+			return Algorithm.<Product>collect(list, prod -> prod.price >= minPrice);
+		}
+		return Algorithm.<Product>collect(list, prod -> prod.price <= maxPrice && prod.price >= minPrice);
 	}
 
 	public static List<Product> read(String filepath) throws FileNotFoundException {
