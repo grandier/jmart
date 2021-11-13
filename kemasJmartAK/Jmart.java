@@ -21,7 +21,7 @@ public class Jmart {
 		try {
 			List<Product> list = read(
 					"C:\\Users\\rafly\\Documents\\PTN Stuff\\UI Kuliah\\Semester 3\\Pemrograman Berorientasi Objek - 02\\Praktikum\\Modul 6\\randomProductList.json");
-			List<Product> filtered = filterByPrice(list, 13000.0, 15000.0);
+			List<Product> filtered = filterByPrice(list, 14000.0, 15000.0);
             filtered.forEach(Product -> System.out.println(Product.price));
 			List<Product> filteredByName = filterByName(list, "gtx", 1, 5);
             filteredByName.forEach(product -> System.out.println(product.name));
