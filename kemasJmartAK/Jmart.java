@@ -1,14 +1,14 @@
 package kemasJmartAK;
 
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;*/
 
 import com.google.gson.Gson;
-import java.lang.reflect.Type;
-import com.google.gson.reflect.TypeToken;
+/*import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;*/
 
 /**
  * Write a description of class Jmart here.
@@ -16,17 +16,26 @@ import com.google.gson.reflect.TypeToken;
  * @author Kemas Rafly Omar Thoriq
  * 
  */
-public class Jmart {
+public class Jmart 
+{
+	public static long DELIVERED_LIMIT_MS = 5;
+	public static long ON_DELIVERY_LIMIT_MS = 5;
+	public static long ON_PROGRESS_LIMIT_MS = 5;
+	public static long WAITING_CONF_LIMIT_MS = 5;
+	
 	public static void main(String[] args) {
 		try {
-			List<Product> list = read(
-					"C:\\Users\\rafly\\Documents\\PTN Stuff\\UI Kuliah\\Semester 3\\Pemrograman Berorientasi Objek - 02\\Praktikum\\Modul 6\\randomProductList.json");
-			List<Product> filtered = filterByPrice(list, 14000.0, 15000.0);
-            filtered.forEach(Product -> System.out.println(Product.price));
-			List<Product> filteredByName = filterByName(list, "gtx", 1, 5);
-            filteredByName.forEach(product -> System.out.println(product.name));
-            List<Product> filteredById = filterByAccountId(list, 1, 0, 5);
-            filteredById.forEach(product -> System.out.println(product.name));
+			JsonTable<Payment> table = new JsonTable<>(Payment.class, "C:\\Users\\rafly\\Documents\\PTN Stuff\\UI Kuliah\\Semester 3\\Pemrograman Berorientasi Objek - 02\\Praktikum\\Modul 7\\randomPaymentList.json");
+			ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<Payment>("Thread-PP", Jmart::paymentTimekeeper);
+			paymentPool.start();
+			table.forEach(payment -> paymentPool.add(payment));
+			while (paymentPool.size() != 0);
+			System.out.println("Thread exited successfully");
+			Gson gson = new Gson();
+			table.forEach(payment -> {
+				String history = gson.toJson(payment.history);
+				System.out.println(history);
+			});
         }
 
         catch (Throwable t)
@@ -34,8 +43,27 @@ public class Jmart {
             t.printStackTrace();
         }
 	}
-
-	public static List<Product> filterByCategory(List<Product> list, ProductCategory category) {
+	
+	public static boolean paymentTimekeeper(Payment payment) {
+		long startTime = System.currentTimeMillis();
+        if(System.currentTimeMillis() - startTime > WAITING_CONF_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FAILED, "FAILED"));
+        }
+        else if(System.currentTimeMillis() - startTime > ON_PROGRESS_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FAILED, "FAILED"));
+        }
+        else if(System.currentTimeMillis() - startTime > ON_DELIVERY_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.ON_DELIVERY, "ON_DELIVERY"));
+        }
+        else if(System.currentTimeMillis() - startTime > DELIVERED_LIMIT_MS) {
+            payment.history.add(new Payment.Record(Invoice.Status.FINISHED, "DELIVERED"));
+            return true;
+        }
+        return false;
+	}
+	
+	
+	/*public static List<Product> filterByCategory(List<Product> list, ProductCategory category) {
 		return Algorithm.<Product>collect(list, prod -> prod.category == category);
 	}
 	
@@ -87,5 +115,5 @@ public class Jmart {
 			}
 		}
 		return pageList;
-	}
+	}*/
 }

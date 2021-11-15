@@ -1,7 +1,6 @@
 package kemasJmartAK;
 
 import java.util.Date;
-import java.util.ArrayList;
 
 /**
  * Abstract class Invoice - write a description of the class here
@@ -33,24 +32,15 @@ public abstract class Invoice extends Serializable
     public int productId;
     public int complaintId;
     public Rating rating;
-    public Status status;
-    public ArrayList<Record> history;
 
     protected Invoice(int buyerId, int productId) {
         this.buyerId = buyerId;
         this.productId = productId;
         date = new Date();
-        this.complaintId = 1;
+        this.complaintId = -1;
         this.rating = Rating.NONE;
-        this.status = Status.WAITING_CONFIRMATION;
     }
 
-    public abstract double getTotalPay();
-
-    public class Record	{
-        public Status status;
-        public Date date;
-        public String message;
-    }
+    public abstract double getTotalPay(Product product);
     
 }
