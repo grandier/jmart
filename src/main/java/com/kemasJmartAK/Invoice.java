@@ -2,6 +2,8 @@ package com.kemasJmartAK;
 
 import java.util.Date;
 
+import com.kemasJmartAK.dbjson.Serializable;
+
 /**
  * Abstract class Invoice - write a description of the class here
  *

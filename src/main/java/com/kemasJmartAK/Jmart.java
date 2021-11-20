@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;*/
 
 import com.google.gson.Gson;
+import com.kemasJmartAK.dbjson.JsonTable;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

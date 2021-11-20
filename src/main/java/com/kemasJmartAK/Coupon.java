@@ -1,5 +1,7 @@
 package com.kemasJmartAK;
 
+import com.kemasJmartAK.dbjson.Serializable;
+
 /**
  * Write a description of class Coupon here.
  *

@@ -3,6 +3,8 @@ package com.kemasJmartAK;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.kemasJmartAK.dbjson.Serializable;
+
 /**
  * Write a description of class Complaint here.
  *

@@ -1,5 +1,6 @@
 package com.kemasJmartAK;
 
+import com.kemasJmartAK.dbjson.Serializable;
 
 /**
  * Write a description of class Product here.
