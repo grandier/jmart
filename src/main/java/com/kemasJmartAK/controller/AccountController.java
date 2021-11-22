@@ -18,7 +18,7 @@ public class AccountController implements BasicGetController<Account> {
 	public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d][^-\\s]{8,}$";
 	public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
-	@JsonAutowired(value = Account.class, filepath = "akun.json")
+	@JsonAutowired(value = Account.class, filepath = "Account.json")
 	public static JsonTable<Account> accountTable;
 
 	@GetMapping
