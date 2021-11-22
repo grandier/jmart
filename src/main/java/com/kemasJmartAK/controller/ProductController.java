@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.kemasJmartAK.*;
 import com.kemasJmartAK.dbjson.*;
 
+@RestController
+@RequestMapping("/product")
 public class ProductController implements BasicGetController<Product> {
 
 	@JsonAutowired(value = Product.class, filepath = "Product.json")

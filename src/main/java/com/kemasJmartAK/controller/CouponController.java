@@ -44,14 +44,14 @@ public class CouponController implements BasicGetController<Coupon> {
 	List<Coupon> getAvailable(@RequestParam int page, @RequestParam int pageSize) {
 		return Algorithm.paginate(couponTable, page, pageSize, pred -> !pred.isUsed());
 	}
-	
-	@GetMapping("/{id}")
-    public Coupon getById(int id) {
-        return getJsonTable().get(id);
-    }
 
-    @GetMapping("/page")
-    public List<Coupon> getPage(int page, int pageSize) {
-        return getJsonTable().subList(page, pageSize);
-    }
+	@GetMapping("/{id}")
+	public Coupon getById(int id) {
+		return getJsonTable().get(id);
+	}
+
+	@GetMapping("/page")
+	public List<Coupon> getPage(int page, int pageSize) {
+		return getJsonTable().subList(page, pageSize);
+	}
 }
