@@ -2,14 +2,13 @@ package com.kemasJmartAK.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.kemasJmartAK.dbjson.JsonTable;
-import com.kemasJmartAK.dbjson.Serializable;
+import com.kemasJmartAK.dbjson.*;
 
 @RestController
-public interface BasicGetController<T extends Serializable>{
+public interface BasicGetController<T extends Serializable>
+{
     @GetMapping("/{id}")
     public default T getById (int id){
         return getJsonTable().get(id);
