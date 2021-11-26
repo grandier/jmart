@@ -28,9 +28,17 @@ public class ProductController implements BasicGetController<Product> {
 
 	@PostMapping("/create")
 	@ResponseBody
-	Product create(@RequestParam int accountId, @RequestParam String name, @RequestParam int weight,
-			@RequestParam boolean conditionUsed, @RequestParam double price, @RequestParam double discount,
-			@RequestParam ProductCategory category, @RequestParam byte shipmentPlans) {
+	Product create(
+						@RequestParam int accountId, 
+						@RequestParam String name, 
+						@RequestParam int weight,
+						@RequestParam boolean conditionUsed, 
+						@RequestParam double price, 
+						@RequestParam double discount,
+						@RequestParam ProductCategory category, 
+						@RequestParam byte shipmentPlans
+			) 
+	{
 		for (Product each : productTable) {
 			if (each.accountId == accountId) {
 				Product product = new Product(accountId, name, weight, conditionUsed, price, discount, category,
