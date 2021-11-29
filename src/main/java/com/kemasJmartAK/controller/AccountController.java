@@ -15,37 +15,28 @@ import com.kemasJmartAK.dbjson.*;
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account> {
 	public static final String REGEX_EMAIL = "^\\w+([\\.&`~-]?\\w+)*@\\w+([\\.-]?\\w+)+$";
-	public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d][^-\\s]{8,}$";
+	public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d][^-\\s]{7,}$";
 	public static final Pattern REGEX_PATTERN_EMAIL = Pattern.compile(REGEX_EMAIL);
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 	@JsonAutowired(value = Account.class, filepath = "Account.json")
 	public static JsonTable<Account> accountTable;
 
-	@GetMapping
-	String index() {
-		return "account page";
-	}
-
-	@Override
-	public JsonTable<Account> getJsonTable() {
-		return accountTable;
-	}
-
 	@PostMapping("/login")
 	Account login(@RequestParam String email, @RequestParam String password) {
-		for (Account data : accountTable) {
-			try {
-				MessageDigest md = MessageDigest.getInstance("MD5");
-				md.update(password.getBytes());
-				byte[] bytes = md.digest();
-				StringBuilder sb = new StringBuilder();
-				for (int i = 0; i < bytes.length; i++) {
-					sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-				}
-				password = sb.toString();
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(password.getBytes());
+			byte[] bytes = md.digest();
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < bytes.length; i++) {
+				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
 			}
+			password = sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		for (Account data : accountTable) {
+
 			if (data.email.equals(email) && data.password.equals(password)) {
 				return data;
 			}
@@ -101,14 +92,20 @@ public class AccountController implements BasicGetController<Account> {
 		}
 		return false;
 	}
-	
-	@GetMapping("/{id}")
-    public Account getById(int id) {
-        return getJsonTable().get(id);
-    }
 
-    @GetMapping("/page")
-    public List<Account> getPage(int page, int pageSize) {
-        return getJsonTable().subList(page, pageSize);
-    }
+	@Override
+	@GetMapping("/{id}")
+	public Account getById(@PathVariable int id) {
+		return BasicGetController.super.getById(id);
+	}
+
+	@Override
+	public JsonTable getJsonTable() {
+		return accountTable;
+	}
+
+	@Override
+	public List getPage(int page, int pageSize) {
+		return BasicGetController.super.getPage(page, pageSize);
+	}
 }
