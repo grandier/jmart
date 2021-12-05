@@ -39,8 +39,8 @@ public class ProductController implements BasicGetController<Product> {
 						@RequestParam byte shipmentPlans
 			) 
 	{
-		for (Product each : productTable) {
-			if (each.accountId == accountId) {
+		for (Account each : AccountController.accountTable) {
+			if (each.id == accountId && each.store != null) {
 				Product product = new Product(accountId, name, weight, conditionUsed, price, discount, category,
 						shipmentPlans);
 				productTable.add(product);
@@ -80,8 +80,8 @@ public class ProductController implements BasicGetController<Product> {
         return getJsonTable().get(id);
     }
 	
-	@GetMapping("/page")
+	/*@GetMapping("/page")
     public List<Product> getPage(int page, int pageSize) {
         return getJsonTable().subList(page, pageSize);
-    }
+    }*/
 }

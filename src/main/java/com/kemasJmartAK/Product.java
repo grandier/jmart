@@ -38,5 +38,4 @@ public class Product extends Serializable
     	+ "\n" + "Category: " + this.category + "\n" + "Price: " + (double)this.price + "\n" + "ShipmentPlans: " 
     	+ this.shipmentPlans;
     }
-    
 }
