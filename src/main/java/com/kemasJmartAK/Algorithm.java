@@ -8,6 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Algorithm is a class that have many type of logic and algorithm
+ * @author Kemas Rafly Omar Thoriq
+ */
 public class Algorithm {
     private Algorithm() {
 

@@ -12,15 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-/*
- * import java.lang.reflect.Type; import com.google.gson.reflect.TypeToken;
- */
-
 /**
- * Write a description of class Jmart here.
+ * Main class that contains all class wants to run.
  *
  * @author Kemas Rafly Omar Thoriq
- * 
+ * @version 1.0
  */
 public class Jmart {
 	public static void main(String[] args) {

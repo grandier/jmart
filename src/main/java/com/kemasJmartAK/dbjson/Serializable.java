@@ -2,6 +2,12 @@ package com.kemasJmartAK.dbjson;
 
 import java.util.HashMap;
 
+/**
+ * Serializable is a main class that could handle id of every class that inherit to serializable
+ *
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
+ */
 public class Serializable implements Comparable<Serializable> {
 	private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
 	public final int id;

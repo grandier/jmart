@@ -5,10 +5,10 @@ import java.util.Date;
 import com.kemasJmartAK.dbjson.Serializable;
 
 /**
- * Abstract class Invoice - write a description of the class here
+ * Invoice is storing data related to history and payment system.
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public abstract class Invoice extends Serializable
 {

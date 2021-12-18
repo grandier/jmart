@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 import com.kemasJmartAK.dbjson.Serializable; 
 
 /**
- * Write a description of class Account here.
+ * Class as an account that store every data related to account information
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Account extends Serializable
 {

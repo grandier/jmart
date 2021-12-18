@@ -6,10 +6,10 @@ import java.util.Date;
 import com.kemasJmartAK.dbjson.Serializable;
 
 /**
- * Write a description of class Complaint here.
+ * Class to store complaint related information with message and date of complaint
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Complaint extends Serializable
 {

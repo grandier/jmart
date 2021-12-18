@@ -11,6 +11,13 @@ import com.kemasJmartAK.Account;
 import com.kemasJmartAK.Store;
 import com.kemasJmartAK.dbjson.*;
 
+/**
+ * The controller for any request with account class and implements BasicGetController.
+ * this controller using rest controller to communicate
+ *
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account> {
@@ -21,6 +28,12 @@ public class AccountController implements BasicGetController<Account> {
 	@JsonAutowired(value = Account.class, filepath = "Account.json")
 	public static JsonTable<Account> accountTable;
 
+	/**
+	 * 
+	 * @param email yang dimasukan pada register
+	 * @param password yang dibuatkan juga dari user
+	 * @return akan mengembalikan data jika seluruh email dan password benar
+	 */
 	@PostMapping("/login")
 	Account login(@RequestParam String email, @RequestParam String password) {
 		try {
@@ -44,6 +57,13 @@ public class AccountController implements BasicGetController<Account> {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param name dari pada user yang akan register
+	 * @param email dari pada user yang akan register
+	 * @param password dari pada user yang akan register
+	 * @return akan mereturn akun yang baru saja di registerkan
+	 */
 	@PostMapping("/register")
 	Account register(@RequestParam String name, @RequestParam String email, @RequestParam String password) {
 
@@ -70,6 +90,14 @@ public class AccountController implements BasicGetController<Account> {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param id untuk mengecek id akun apa yang lagi ter-logged in
+	 * @param name daripada toko yang akan dibuatkan
+	 * @param address daripada toko yang akan dibuatkan
+	 * @param phoneNumber daripada toko yang akan dibuatkan
+	 * @return akan mereturn store yang baru saja di registerkan berdasarkan akun yang lagi login
+	 */
 	@PostMapping("/{id}/registerStore")
 	Store register(@RequestParam int id, @RequestParam String name, @RequestParam String address,
 			@RequestParam String phoneNumber) {
@@ -82,6 +110,12 @@ public class AccountController implements BasicGetController<Account> {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param id daripada akun yang ingin topup
+	 * @param balance daripada akun yang ingin topup
+	 * @return mengembalikan boolean dengan kondisi berhasil atau tidak topup-nya
+	 */
 	@PostMapping("/{id}/topUp")
 	boolean topUp(@RequestParam int id, @RequestParam double balance) {
 		for (Account data : accountTable) {
@@ -93,17 +127,26 @@ public class AccountController implements BasicGetController<Account> {
 		return false;
 	}
 
+	/**
+	 * untuk mengecek akun berdasarkan id
+	 */
 	@Override
 	@GetMapping("/{id}")
 	public Account getById(@PathVariable int id) {
 		return BasicGetController.super.getById(id);
 	}
 
+	/**
+	 * untuk melihat accountable
+	 */
 	@Override
 	public JsonTable getJsonTable() {
 		return accountTable;
 	}
 
+	/**
+	 * untuk paginate
+	 */
 	@Override
 	public List getPage(int page, int pageSize) {
 		return BasicGetController.super.getPage(page, pageSize);

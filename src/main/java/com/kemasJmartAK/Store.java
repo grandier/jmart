@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern; 
 
 /**
- * Write a description of class Store here.
+ * Class Store used to make personal store
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Store
 {

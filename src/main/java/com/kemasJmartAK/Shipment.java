@@ -5,10 +5,10 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 /**
- * Write a description of class Shipment here.
+ * shipment is storing type of shipment based on byte
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Shipment {
 	public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMM dd yyyy");;

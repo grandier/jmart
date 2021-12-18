@@ -3,10 +3,10 @@ package com.kemasJmartAK;
 import com.kemasJmartAK.dbjson.Serializable;
 
 /**
- * Write a description of class Coupon here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Class to store coupon information and could be used when someone has a payment.
+ * 
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Coupon extends Serializable {
 	public final String name;

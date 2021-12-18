@@ -1,10 +1,10 @@
 package com.kemasJmartAK;
 
 /**
- * Write a description of class PriceTag here.
+ * used to check price of product
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Treasury {
 	public static final double COMMISSION_MULTIPLIER = 0.05;

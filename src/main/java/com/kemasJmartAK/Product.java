@@ -3,10 +3,10 @@ package com.kemasJmartAK;
 import com.kemasJmartAK.dbjson.Serializable;
 
 /**
- * Write a description of class Product here.
+ * Products storing data about detail of products
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kemas Rafly Omar Thoriq
+ * @version 1.0
  */
 public class Product extends Serializable
 {
